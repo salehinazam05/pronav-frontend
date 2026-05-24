@@ -58,6 +58,48 @@
       gap: 40px;
     }
 
+    .nav-toggle{
+      display:none;
+      border:none;
+      background:none;
+      cursor:pointer;
+      width:44px;
+      height:44px;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+
+    .nav-toggle span{
+      display:block;
+      width:28px;
+      height:3px;
+      background:#1e1e1e;
+      border-radius:999px;
+      position:relative;
+      transition:0.3s ease;
+    }
+
+    .nav-toggle span::before,
+    .nav-toggle span::after{
+      content:'';
+      position:absolute;
+      width:28px;
+      height:3px;
+      background:#1e1e1e;
+      border-radius:999px;
+      left:0;
+      transition:0.3s ease;
+    }
+
+    .nav-toggle span::before{
+      top:-8px;
+    }
+
+    .nav-toggle span::after{
+      top:8px;
+    }
+
     .nav-links a{
       text-decoration:none;
       color:#1e1e1e;
@@ -497,8 +539,34 @@
 
     @media(max-width:700px){
 
+      .nav-toggle{
+        display:flex;
+      }
+
       .nav-links{
         display:none;
+        position:fixed;
+        top:90px;
+        right:0;
+        left:0;
+        background:rgba(248,242,235,0.98);
+        backdrop-filter:blur(16px);
+        flex-direction:column;
+        gap:16px;
+        padding:24px 6%;
+        border-top:1px solid rgba(0,0,0,0.08);
+        box-shadow:0 18px 35px rgba(0,0,0,0.12);
+      }
+
+      .nav-links.open{
+        display:flex;
+      }
+
+      .nav-links a{
+        padding:14px 0;
+        font-size:16px;
+        border-radius:12px;
+        background:rgba(255,255,255,0.9);
       }
 
       .hero-text h1,
@@ -541,12 +609,15 @@
   <nav class="navbar">
     <div class="logo">
       <img src="images/Logo2.jpeg" alt="logo">
-   </div>
+    </div>
+
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span>
+    </button>
 
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#services">Services</a>
-      
       <a href="gallary.html">Gallery</a>
       <a href="#booking">Book</a>
     </div>
@@ -935,6 +1006,20 @@
         reviewTrack.scrollBy({ left: scrollAmount, behavior: 'smooth' });
       });
     }
+
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    navToggle?.addEventListener('click', () => {
+      navLinks?.classList.toggle('open');
+    });
+
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navLinks?.classList.remove('open');
+      });
+    });
 
   </script>
 
