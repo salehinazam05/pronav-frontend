@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pronav Gallery</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#f8f2eb;
+      font-family:'Inter',sans-serif;
+      overflow-x:hidden;
+    }
+
+    .gallery-hero{
+      height:50vh;
+      background:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
+      url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1600&auto=format&fit=crop');
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+
+      color:white;
+      padding:20px;
+    }
+
+    .gallery-hero h1{
+      font-size:90px;
+      font-family:'Cormorant Garamond',serif;
+      font-weight:500;
+      letter-spacing:2px;
+    }
+
+    .gallery-section{
+      padding:100px 7%;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .gallery-grid img{
+      width:100%;
+      height:420px;
+      object-fit:cover;
+      border-radius:20px;
+      transition:0.4s ease;
+      box-shadow:0 15px 35px rgba(0,0,0,0.08);
+    }
+
+    .gallery-grid img:hover{
+      transform:translateY(-8px) scale(1.02);
+    }
+
+    .back-btn{
+      position:fixed;
+      top:25px;
+      left:25px;
+
+      background:#111;
+      color:white;
+
+      padding:14px 24px;
+      border-radius:40px;
+
+      text-decoration:none;
+      font-size:14px;
+      z-index:999;
+    }
+
+    @media(max-width:768px){
+
+      .gallery-hero h1{
+        font-size:52px;
+      }
+
+      .gallery-grid img{
+        height:320px;
+      }
+
+      .gallery-section{
+        padding:70px 5%;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Back</a>
+
+  <section class="gallery-hero">
+
+    <div>
+      <h1>Pronav Gallery</h1>
+    </div>
+
+  </section>
+
+  <section class="gallery-section">
+
+    <div class="gallery-grid">
+
+      <img src="images/G1.jpeg" alt="">
+      <img src="images/G2.jpeg" alt="">
+      <img src="images/G3.jpeg" alt="">
+      <img src="images/G4.jpeg" alt="">
+      <img src="images/G5.jpeg" alt="">
+      <img src="images/G6.jpeg" alt="">
+      <img src="images/G7.jpeg" alt="">
+      <img src="images/G8.jpeg" alt="">
+      <img src="images/G9.jpeg" alt="">
+      
+    </div>
+
+  </section>
+
+</body>
+</html>
